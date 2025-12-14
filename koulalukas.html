@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rozcestník aplikací | Lukáš Koula</title>
+    <meta name="description" content="Rozcestník aplikací Lukáše Kouly - Money Desk pro správu financí, Ads Pilot pro reklamní kampaně a LK Visual Studio s ukázkami AI videí. Objevte nástroje pro efektivní práci a kreativní projekty.">
+    <meta name="keywords" content="Lukáš Koula, aplikace, Money Desk, Ads Pilot, LK Visual Studio, finance, reklama, AI video">
+    <meta name="author" content="Lukáš Koula">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lukaskoula.com/">
+    <meta property="og:title" content="Rozcestník aplikací | Lukáš Koula">
+    <meta property="og:description" content="Rozcestník aplikací Lukáše Kouly - Money Desk, Ads Pilot a LK Visual Studio. Nástroje pro efektivní práci a kreativní projekty.">
+    <meta property="og:image" content="https://lukaskoula.com/wp-content/uploads/2023/01/cropped-logo-web-LK.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lukaskoula.com/">
+    <meta property="twitter:title" content="Rozcestník aplikací | Lukáš Koula">
+    <meta property="twitter:description" content="Rozcestník aplikací Lukáše Kouly - Money Desk, Ads Pilot a LK Visual Studio. Nástroje pro efektivní práci a kreativní projekty.">
+    <meta property="twitter:image" content="https://lukaskoula.com/wp-content/uploads/2023/01/cropped-logo-web-LK.png">
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-white: #FFFFFF;
+            --color-black: #000000;
+            --color-cream: #F6F5EE;
+            --color-orange: #FCB02F;
+            --bg-main: #F6F5EE;
+            --bg-card: #FFFFFF;
+            --text-primary: #000000;
+            --text-secondary: rgba(0, 0, 0, 0.6);
+            --border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 2rem;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--color-black);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .about-section {
+            max-width: 700px;
+            margin: 2rem auto 3rem;
+            text-align: center;
+        }
+
+        .about-section p {
+            color: var(--text-primary);
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .web-banner {
+            background: var(--color-orange);
+            border: 1px solid var(--color-orange);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            animation: fadeInUp 0.8s ease-out;
+            animation-delay: 0.4s;
+            animation-fill-mode: both;
+        }
+
+        .web-banner p {
+            color: var(--color-black);
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .web-banner .app-link {
+            margin: 0 auto;
+            pointer-events: auto;
+            cursor: pointer;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .app-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: both;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
+        }
+
+        .app-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .app-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .app-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--color-orange);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .app-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-orange);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .app-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .app-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            background: var(--color-white);
+            color: var(--color-black);
+        }
+
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .app-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .app-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .app-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .app-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-black);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 1rem 2rem;
+            background: var(--color-white);
+            border: 2px solid var(--color-black);
+            border-radius: 0;
+            transition: all 0.2s ease;
+            box-shadow: 4px 4px 0 0 var(--color-black);
+            position: relative;
+            pointer-events: none;
+        }
+
+        a.app-card:hover .app-link {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 0 var(--color-black);
+        }
+
+        a.app-card:active .app-link {
+            transform: translate(4px, 4px);
+            box-shadow: 0 0 0 0 var(--color-black);
+        }
+
+        .app-buttons .app-link:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 0 var(--color-black);
+        }
+
+        .app-buttons .app-link:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0 0 0 0 var(--color-black);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .apps-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .app-card {
+                padding: 2rem;
+            }
+        }
+
+        /* Placeholder for future apps */
+        .coming-soon {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .coming-soon .app-link {
+            cursor: not-allowed;
+        }
+
+        .app-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .app-buttons .app-link {
+            flex: 1;
+            min-width: 140px;
+            pointer-events: auto;
+            cursor: pointer;
+        }
+
+        .app-buttons button.app-link {
+            border: 2px solid var(--color-black);
+            font-family: inherit;
+            background: var(--color-white);
+            color: var(--color-black);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 1rem 2rem;
+            border-radius: 0;
+            transition: all 0.2s ease;
+            box-shadow: 4px 4px 0 0 var(--color-black);
+            position: relative;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .app-card:not(a) {
+            cursor: default;
+        }
+
+        .app-card:not(a):hover {
+            transform: none;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--color-white);
+            border: 2px solid var(--color-black);
+            border-radius: 0;
+            padding: 3rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 8px 8px 0 0 var(--color-black);
+            animation: slideDown 0.3s ease;
+        }
+
+        .modal-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-black);
+        }
+
+        .modal-close {
+            margin-top: 2rem;
+            pointer-events: auto !important;
+            cursor: pointer;
+        }
+
+        .modal-content .app-link {
+            pointer-events: auto;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Rozcestník aplikací | Lukáš Koula",
+        "description": "Rozcestník aplikací Lukáše Kouly - Money Desk pro správu financí, Ads Pilot pro reklamní kampaně a LK Visual Studio s ukázkami AI videí.",
+        "url": "https://lukaskoula.com/",
+        "author": {
+            "@type": "Person",
+            "name": "Lukáš Koula"
+        },
+        "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": [
+                {
+                    "@type": "SoftwareApplication",
+                    "name": "Money Desk",
+                    "description": "Správa financí a účetnictví. Komplexní nástroj pro správu peněz a finančního plánování.",
+                    "applicationCategory": "FinanceApplication",
+                    "operatingSystem": "Web",
+                    "offers": [
+                        {
+                            "@type": "Offer",
+                            "name": "Personal",
+                            "url": "https://personal.moneydesk.cz"
+                        },
+                        {
+                            "@type": "Offer",
+                            "name": "Business",
+                            "availability": "https://schema.org/PreOrder"
+                        }
+                    ]
+                },
+                {
+                    "@type": "SoftwareApplication",
+                    "name": "Ads Pilot",
+                    "description": "Správa reklamních kampaní. Nástroj pro efektivní řízení a optimalizaci reklamních aktivit.",
+                    "applicationCategory": "BusinessApplication",
+                    "operatingSystem": "Web",
+                    "offers": [
+                        {
+                            "@type": "Offer",
+                            "name": "Nastartujto",
+                            "url": "https://nastartujto.koulalukas.cz"
+                        },
+                        {
+                            "@type": "Offer",
+                            "name": "Premium",
+                            "availability": "https://schema.org/PreOrder"
+                        }
+                    ]
+                },
+                {
+                    "@type": "CreativeWork",
+                    "@id": "https://www.youtube.com/@lukaskoula",
+                    "name": "LK Visual Studio",
+                    "description": "Ukázka výstupů - videí pomocí AI. Takzvaně Vibe filming.",
+                    "creator": {
+                        "@type": "Person",
+                        "name": "Lukáš Koula"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="https://lukaskoula.com/wp-content/uploads/2023/01/cropped-logo-web-LK.png" alt="Lukáš Koula logo">
+            </div>
+            <h1>Rozcestník aplikací</h1>
+            <div class="about-section">
+                <p>
+                    Vítejte na mém rozcestníku aplikací. Jsem vývojář a tvůrce aplikací, 
+                    které pomáhají zjednodušit práci a zefektivnit každodenní úkoly. 
+                    Každá aplikace je navržena s důrazem na jednoduchost, funkčnost a uživatelský komfort.
+                </p>
+            </div>
+        </header>
+
+        <div class="web-banner">
+            <p>Nechtěli jste spíše navštívit můj web?</p>
+            <a href="https://lukaskoula.com" target="_blank" class="app-link">NA WEB</a>
+        </div>
+
+        <div class="apps-grid">
+            <div class="app-card">
+                <div class="app-icon">
+                    <img src="https://lukaskoula.com/wp-content/uploads/2025/11/logo-ctverec.png" alt="Money Desk logo">
+                </div>
+                <h2 class="app-title">Money Desk</h2>
+                <p class="app-description">
+                    Správa financí a účetnictví. Komplexní nástroj pro správu peněz a finančního plánování.
+                </p>
+                <div class="app-buttons">
+                    <a href="https://personal.moneydesk.cz" target="_blank" class="app-link">PERSONAL</a>
+                    <button class="app-link" onclick="openPremiumModal()">BUSINESS</button>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-icon">
+                    <img src="https://lukaskoula.com/wp-content/uploads/2025/12/Ad-pilot-LK.png" alt="Ads Pilot logo">
+                </div>
+                <h2 class="app-title">Ads Pilot</h2>
+                <p class="app-description">
+                    Správa reklamních kampaní. Nástroj pro efektivní řízení a optimalizaci reklamních aktivit.
+                </p>
+                <div class="app-buttons">
+                    <button class="app-link" onclick="openPremiumModal()">PREMIUM</button>
+                    <a href="https://nastartujto.koulalukas.cz" target="_blank" class="app-link">NASTARTUJTO</a>
+                </div>
+            </div>
+
+            <a href="https://www.youtube.com/@lukaskoula" target="_blank" class="app-card">
+                <div class="app-icon">
+                    <img src="https://lukaskoula.com/wp-content/uploads/2025/12/lk-visual-studio-logo.png" alt="LK Visual Studio logo">
+                </div>
+                <h2 class="app-title">LK Visual Studio</h2>
+                <p class="app-description">
+                    Ukázka mých výstupů - videí pomocí AI. Takzvaně Vibe filming.
+                </p>
+                <span class="app-link">YOUTUBE KANÁL</span>
+            </a>
+        </div>
+
+        <!-- Modal -->
+        <div id="premiumModal" class="modal">
+            <div class="modal-content">
+                <h3>Připravujeme</h3>
+                <p>Premium verze je momentálně ve vývoji. Děkujeme za trpělivost!</p>
+                <button class="app-link modal-close" onclick="closePremiumModal()">ZAVŘÍT</button>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2025 Lukáš Koula. Všechna práva vyhrazena.</p>
+        </footer>
+    </div>
+
+    <script>
+        function openPremiumModal() {
+            document.getElementById('premiumModal').classList.add('active');
+        }
+
+        function closePremiumModal() {
+            document.getElementById('premiumModal').classList.remove('active');
+        }
+
+        // Zavření modalu při kliknutí mimo něj
+        window.onclick = function(event) {
+            const modal = document.getElementById('premiumModal');
+            if (event.target === modal) {
+                closePremiumModal();
+            }
+        }
+    </script>
+</body>
+</html>
+
