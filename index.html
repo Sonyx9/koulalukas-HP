@@ -351,8 +351,8 @@
         }
 
         .app-buttons .app-link {
-            flex: 1;
-            min-width: 140px;
+            flex: 1 1 0;
+            min-width: 0;
             pointer-events: auto;
             cursor: pointer;
             display: flex;
@@ -360,11 +360,13 @@
             justify-content: center;
             min-height: 48px;
             height: 100%;
+            width: 100%;
         }
 
         .app-buttons .app-link:only-child {
             flex: 0 1 auto;
             min-width: auto;
+            width: auto;
         }
 
         .app-buttons button.app-link {
