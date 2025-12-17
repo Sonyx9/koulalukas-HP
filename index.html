@@ -263,6 +263,8 @@
             box-shadow: 4px 4px 0 0 var(--color-black);
             position: relative;
             pointer-events: none;
+            min-height: 48px;
+            box-sizing: border-box;
         }
 
         a.app-card:hover .app-link {
@@ -345,6 +347,7 @@
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
+            align-items: stretch;
         }
 
         .app-buttons .app-link {
@@ -352,6 +355,11 @@
             min-width: 140px;
             pointer-events: auto;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            height: 100%;
         }
 
         .app-buttons .app-link:only-child {
