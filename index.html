@@ -176,6 +176,10 @@
             animation-delay: 0.3s;
         }
 
+        .app-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
         .app-card::before {
             content: '';
             position: absolute;
@@ -350,6 +354,11 @@
             cursor: pointer;
         }
 
+        .app-buttons .app-link:only-child {
+            flex: 0 1 auto;
+            min-width: auto;
+        }
+
         .app-buttons button.app-link {
             border: 2px solid var(--color-black);
             font-family: inherit;
@@ -507,6 +516,20 @@
                         "@type": "Person",
                         "name": "Lukáš Koula"
                     }
+                },
+                {
+                    "@type": "SoftwareApplication",
+                    "name": "Converter",
+                    "description": "Kovertor souborů.",
+                    "applicationCategory": "UtilityApplication",
+                    "operatingSystem": "Web",
+                    "offers": [
+                        {
+                            "@type": "Offer",
+                            "name": "CSV to MD",
+                            "url": "https://csv-md.koulalukas.cz"
+                        }
+                    ]
                 }
             ]
         }
@@ -566,6 +589,19 @@
                 </p>
                 <span class="app-link">YOUTUBE KANÁL</span>
             </a>
+
+            <div class="app-card">
+                <div class="app-icon">
+                    <img src="https://lukaskoula.com/wp-content/uploads/2025/12/LK-convertor.png" alt="Converter logo">
+                </div>
+                <h2 class="app-title">Converter</h2>
+                <p class="app-description">
+                    Kovertor souborů.
+                </p>
+                <div class="app-buttons">
+                    <a href="https://csv-md.koulalukas.cz" target="_blank" class="app-link">CSV TO MD</a>
+                </div>
+            </div>
         </div>
 
         <!-- Modal -->
