@@ -142,7 +142,7 @@
 
         .apps-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin-bottom: 3rem;
         }
@@ -179,6 +179,10 @@
 
         .app-card:nth-child(4) {
             animation-delay: 0.4s;
+        }
+
+        .app-card:nth-child(5) {
+            animation-delay: 0.5s;
         }
 
         .app-card::before {
@@ -230,6 +234,12 @@
             stroke-width: 2;
             stroke-linecap: round;
             stroke-linejoin: round;
+        }
+
+        .app-icon-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-black);
         }
 
         .app-title {
@@ -320,7 +330,7 @@
             }
         }
 
-        @media (max-width: 1200px) {
+        @media (max-width: 1000px) {
             .apps-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -550,6 +560,20 @@
                             "url": "https://png-to-webp.koulalukas.cz/"
                         }
                     ]
+                },
+                {
+                    "@type": "SoftwareApplication",
+                    "name": "Heuréka reporty",
+                    "description": "Reporty a nástroje pro Heuréka.",
+                    "applicationCategory": "BusinessApplication",
+                    "operatingSystem": "Web",
+                    "offers": [
+                        {
+                            "@type": "Offer",
+                            "name": "Spokojené zvíře",
+                            "url": "https://spokojene-zvire.koulalukas.cz"
+                        }
+                    ]
                 }
             ]
         }
@@ -623,6 +647,20 @@
                 <div class="app-buttons">
                     <a href="https://csv-md.koulalukas.cz" target="_blank" class="app-link">CSV TO MD</a>
                     <a href="https://png-to-webp.koulalukas.cz/" target="_blank" class="app-link">JPG, PNG TO WEBP</a>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-icon">
+                    <span class="app-icon-text">HR</span>
+                </div>
+                <h2 class="app-title">Heuréka reporty</h2>
+                <p class="app-description">
+                    Reporty a nástroje pro Heuréka.
+                </p>
+                <div class="app-buttons">
+                    <a href="https://spokojene-zvire.koulalukas.cz" target="_blank" class="app-link">SPOKOJENÉ ZVÍŘE</a>
+                    <button class="app-link" onclick="openPremiumModal()">PŘIPRAVUJEME</button>
                 </div>
             </div>
         </div>
